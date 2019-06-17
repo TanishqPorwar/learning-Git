@@ -100,3 +100,133 @@ The `url` is the url of the repository that we want to connect to.
 
 
 ## Q7
+### merge two branches
+1. Open Git Bash.
+
+2. Change the current working directory to your local project.
+
+3. Check out the branch you wish to merge to. Usually, you will merge into `master`.
+```
+  $ git checkout master
+```
+
+4. `Pull` the desired branch from the upstream repository. This method will retain the commit history without modification.
+```
+  $ git pull https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git BRANCH_NAME
+```
+
+5. Commit the merge.
+
+6. Review the changes and ensure they are satisfactory.
+
+7. `Push` the merge to your GitHub repository.
+```
+  $ git push origin master
+```
+
+
+## Q8
+###  Resolve merge conflicts
+Merge conflicts happen when you merge branches that have competing commits, and Git needs your help to decide which changes to incorporate in the final merge.
+
+1. #### Resolving a merge conflict on GitHub
+    * Under your repository name, click  Pull requests.
+      
+      ![picture alt](https://help.github.com/assets/images/help/repository/repo-tabs-pull-requests.png)
+  
+    * In the "Pull Requests" list, click the pull request with a merge conflict that you'd like to resolve.
+
+    * Near the bottom of your pull request, click Resolve conflicts.
+      
+      ![picture alt](https://help.github.com/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
+
+
+    * Decide if you want to keep only your branch's changes, keep only the other branch's changes, or make a brand new change, which may   incorporate changes from both branches. Delete the conflict markers <<<<<<<, =======, >>>>>>> and make the changes you want in the final merge.
+      
+      ![picture alt](https://help.github.com/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
+
+
+    * If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps four and  five to resolve your merge conflict.
+
+    * Once you've resolved all the conflicts in the file, click Mark as resolved.
+      
+      ![picture alt](https://help.github.com/assets/images/help/pull_requests/mark-as-resolved-button.png)
+
+    * If you have more than one file with a conflict, select the next file you want to edit on the left side of the page under "conflicting files" and repeat steps four through seven until you've resolved all of your pull request's merge conflicts.
+      
+      ![picture alt](https://help.github.com/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
+
+
+    * Once you've resolved all your merge conflicts, click Commit merge. This merges the entire base branch into your head branch.
+      
+      ![picture alt](https://help.github.com/assets/images/help/repository/https-url-clone.png)
+
+
+    * If prompted, review the branch that you are committing to. If you want to commit to this branch, click I understand, update BRANCH.
+      
+      ![picture alt](https://help.github.com/assets/images/help/pull_requests/merge-conflict-confirmation.png)
+
+    * To merge your pull request, click Merge pull request. 
+
+2. #### Resolving a merge conflict using the command line
+    * Open Git Bash.
+
+    * Navigate into the local Git repository that has the merge conflict.     
+    ```
+      cd REPOSITORY-NAME
+    ```
+
+    * Generate a list of the files affected by the merge conflict. In this example, the file styleguide.md has a merge conflict.
+    
+      ```
+      $ git status
+      > # On branch branch-b
+      > # You have unmerged paths.
+      > #   (fix conflicts and run "git commit")
+      > #
+      > # Unmerged paths:
+      > #   (use "git add ..." to mark resolution)
+      > #
+      > # both modified:      styleguide.md
+      > #
+      > no changes added to commit (use "git add" and/or "git commit -a")
+      ```
+      
+    *  Open your favorite text editor, such as Atom, and navigate to the file that has merge conflicts.
+
+    * To see the beginning of the merge conflict in your file, search the file for the conflict marker <<<<<<<. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line <<<<<<< HEAD. Next, you'll see =======, which divides your changes from the changes in the other branch, followed by >>>>>>> BRANCH-NAME. 
+    
+    * Decide if you want to keep only your branch's changes, keep only the other branch's changes, or make a brand new change, which may incorporate changes from both branches. Delete the conflict markers <<<<<<<, =======, >>>>>>> and make the changes you want in the final merge. 
+    
+    * Add or stage your changes.
+      ```
+      $ git add
+      ```.
+    * Commit your changes with a comment.
+      ```
+      $ git commit -m "Resolved merge conflict by incorporating both suggestions."
+      ```
+      
+## Q9
+### Commit changes
+* Stage your changes
+  ```
+  git add ~A
+  ```
+* Commit your changes
+  ```
+  git commit -m "added my github name"
+  ```
+ 
+ 
+## Q10
+### Stash changes
+* Open Git Bash.
+
+* Navigate into the local Git repository
+
+* stash 
+  ```
+  $ git stash
+  ```
+  
